@@ -1,0 +1,24 @@
+{% extends 'review/base.html' %}
+
+{% block content %}
+
+<div>
+	<form method="POST">
+		{% csrf_token %}
+		<fieldset>
+			<legend> Write another Review ! </legend>
+			{{ form.as_p }}
+
+			<button type="submit"> Post </button>
+
+		</fieldset>
+	</form>
+		 
+</div>
+
+{% endblock content %}
+
+
+
+
+

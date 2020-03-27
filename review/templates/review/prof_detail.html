@@ -1,0 +1,43 @@
+{% extends 'review/base.html' %}
+
+{% block right-up %}
+<h3>Latest Courses</h3>
+{% for course in courses %}
+	<p><a href="{% url 'course_detail' course.id %}"> {{ course.title }}</a></p>
+{% endfor %}
+{% endblock right-up %}
+
+{% block right-down %}
+<h3>Latest Professors</h3>
+{% for prof in professors %}
+	<p> <a href="{% url 'prof_detail' prof.id %}"> {{ prof.title }} </a></p>
+{% endfor %}
+{% endblock right-down%}
+
+
+{% block left-content %}
+	<div style="border-right: 1px solid black; height:100% ;">
+	
+	<div style="font-size: 70px"> {{ prof.title }} </div>
+	<h3> Course in <span style="color:blue;">Department of {{ prof.get_department_display }} </span></h3>
+	<h3>at <span style="color:blue;"> IIT DELHI </span></h3>
+	
+	</div>
+{% endblock left-content %}
+
+
+
+{% block content %} 
+
+{% for r in reviews %} 
+<a href="{% url 'course_detail' r.title.id %}"> {{r.title}} </a> |
+<a href="{% url 'prof_detail' r.title.id %}"> {{r.P_name}}</a><br><br>
+<span > Quality : {{r.quality}}/10 </span>
+<span style="margin-left:50px;"> Difficulty : {{ r.difficulty }}/10</span>
+<span style="margin-left:50px;"> Overall : {{ r.overall }}/10</span>
+<p> {{r.comments}} </p>
+<hr>
+{% endfor %}
+
+
+{% endblock content %}
