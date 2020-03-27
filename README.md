@@ -13,4 +13,6 @@ ADMIN credentials :
   username : admin
   password:admin
   
+Portal can be extended
+  
   
