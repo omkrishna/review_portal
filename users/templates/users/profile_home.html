@@ -1,0 +1,42 @@
+{% extends 'review/base.html' %}
+
+{% block left-content %}
+	<div style="border-right: 1px solid black; height:100% ;">
+	<img src="{{ user.profile.image.url }}" style="width:150px;border-radius:50%;">
+	<h1> {{ user.username }} </h1>
+	<h2> {{ user.email }} </h2>
+	<h2><a href="{% url 'profile_update' %}"> Update Profile </a></h2>
+	</div>
+{% endblock left-content %}
+
+
+
+
+ {% block right-up %}
+{% for course in courses %}
+	<p><a href="{% url 'course_detail' course.id %}"> {{ course.title }}</a></p>
+{% endfor %}
+{% endblock right-up %}
+
+{% block right-down %}
+{% for prof in professors %}
+	<p> <a href="{% url 'course_detail' course.id %}"> {{ prof.title }} </a></p>
+{% endfor %}
+{% endblock right-down%}
+
+
+
+{% block content %} 
+
+{% for r in reviews %} 
+<a href="{% url 'course_detail' r.title.id %}">{{r.title}}</a> |
+ <a href="{% url 'prof_detail' r.title.id %}">{{r.P_name}}</a><br><br>
+<span > Quality : {{r.quality}}/10 </span>
+<span style="margin-left:50px;"> Difficulty : {{ r.difficulty }}/10</span>
+<span style="margin-left:50px;"> Overall : {{ r.overall }}/10</span>
+<p> {{r.comments}} </p>
+<hr>
+{% endfor %}
+
+
+{% endblock content %}
