@@ -1,6 +1,5 @@
 Documentation - review_portal
-Part of DevClub Recruitment Assignment 2020 
-submitted by Om Krishna - 2019CE10272
+
 
 Project done on python-Django.
 
